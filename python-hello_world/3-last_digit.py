@@ -13,5 +13,5 @@ if lastDigit == 0:
     print(f"{text} and is 0")
 elif lastDigit > 5 and lastDigit % 10 != 0:
     print(f"{text} and is greater than 5")
-elif lastDigit < 6 and lastDigit != 0:
-    print("f{message} and is less than 6 and not 0")
+else:
+    print("f{text} and is less than 6 and not 0")
