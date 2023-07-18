@@ -3,4 +3,4 @@ for a in range(100):
     if a < 99:
         print(", ", end="")
     else:
-        p[rint()]
+        print()
