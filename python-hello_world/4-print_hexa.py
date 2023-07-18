@@ -1,2 +1,2 @@
 for i in range(99):
-    print("{} = 0x{:02x}".format(i, i))
+    print("{} = 0x{:2x}".format(i, i))
