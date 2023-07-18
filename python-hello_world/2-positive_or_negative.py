@@ -8,5 +8,5 @@ elif number == 0:
     print(number, "is zero")
     #print(f'{number} is zero')
 elif number < 0:
-    print(number, "is zero")
+    print(number, "is negative")
     #print(f'{number} is negative')
