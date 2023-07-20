@@ -1,5 +1,5 @@
 def validate_password(password):
-    if password < 8:
+    if len(password) < 8:
         return False
     #check for at least an uppercase, lowercase and digit
     its_uppercase = any(char.isuper() for char in password)
