@@ -15,7 +15,7 @@ def validate_password(password):
             its_lowercase = True
         elif char.isdigit():
             its_digit = True
-    if not (its_uppercase and its_lowercaseand its_digit):
+    if not (its_uppercase and its_lowercase and its_digit):
         return False
     
     #check if the password contains space
