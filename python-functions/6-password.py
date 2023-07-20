@@ -8,3 +8,6 @@ def validate_password(password):
 
     if not (its_uppercase and its_lowercase and its_digit):
         return False
+    if ' ' in password:
+        return False
+    return True
