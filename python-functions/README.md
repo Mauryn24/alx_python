@@ -19,7 +19,8 @@ Example:
     my_function()
 
 *THE PASS STATEMENT*
-the pass statememt is used if the function is empty.
+the pass statgit add .
+ememt is used if the function is empty.
 Example:
     def myfunction():
         pass
