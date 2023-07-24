@@ -6,7 +6,7 @@ def main():
     from add_0 import add
     
     sum = add(a, b)
-    print("{} - {} = {}".format(a, b, sum))
+    print("{:d} + {:d} = {:d}".format(a, b, sum))
 
 if __name__ == "__main__":
     main()
