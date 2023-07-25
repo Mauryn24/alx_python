@@ -7,7 +7,7 @@ def get_arguments(argv):
     plural = "s" if num_arguments != 1 else ""
 
     #printnumber of args
-    print("{:d} argument{}{}".format(num_arguments, plural, ":" if num_arguments > 0 else ""), end="")
+    print("{:d} argument{}{}".format(num_arguments, plural, ":" if num_arguments > 0 else ""))
     #check if there are no args
     if num_arguments == 0:
         print(".")
