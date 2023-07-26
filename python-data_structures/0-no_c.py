@@ -6,7 +6,7 @@ def no_c(my_string):
         #check if the character is not 'c' or 'C'
         if b.lower() != 'c':
             r += b
-        elif b.upper() != 'C':
-            r += b
+        #elif b.upper() != 'C':
+         #   r += b
         #return final result
         return r
