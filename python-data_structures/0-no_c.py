@@ -1,12 +1,12 @@
 def no_c(my_string):
     #initialize an empty string
-    r = ""
+    r = []
     #loop through each statement in the input string
     for b in my_string:
         #check if the character is not 'c' or 'C'
         if b not in ('c', 'C'):
-            r += b
+            r.append(b)
         #elif b.upper() != 'C':
          #   r += b
         #return final result
-        return r
+        return ''.join(r)
