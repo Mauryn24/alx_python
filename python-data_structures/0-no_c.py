@@ -4,7 +4,7 @@ def no_c(my_string):
     #loop through each statement in the input string
     for b in my_string:
         #check if the character is not 'c' or 'C'
-        if b.lower() != 'c':
+        if b not in ('c', 'C')
             r += b
         #elif b.upper() != 'C':
          #   r += b
