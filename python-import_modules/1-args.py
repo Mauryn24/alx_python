@@ -10,7 +10,7 @@ def get_arguments(argv):
     print("{:d} argument{}{}".format(num_arguments, plural, ":" if num_arguments > 0 else "", end=""))
     #check if there are no args
     if num_arguments == 0:
-        print("arguments. ")
+        print(" 0 arguments.")
     else:
         #print()
     #loop thru and prnt args with their positions
