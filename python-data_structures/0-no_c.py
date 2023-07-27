@@ -4,9 +4,11 @@ def no_c(my_string):
     #loop through each statement in the input string
     for b in my_string:
         #check if the character is not 'c' or 'C'
-        if b not in ('c', 'C'):
-            r.append(b)
+        if b == ('c', 'C'):
+            pass
+        else:
+            r += b
         #elif b.upper() != 'C':
          #   r += b
         #return final result
-        return ''.join(r)
+        return r
