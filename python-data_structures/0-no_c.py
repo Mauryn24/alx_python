@@ -5,7 +5,5 @@ def no_c(my_string):
     for b in my_string:
         #check if the character is not 'c' or 'C'
         if b != ('c') and b != ('C'):
-            r +=b
-        else:
             r += b
     return r
