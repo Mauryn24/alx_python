@@ -1,4 +1,4 @@
 class Square:
-    "class squares gives squares of numbers"
+    'instantiation with size'
     def __init__(self, size):
         self.__size = size
