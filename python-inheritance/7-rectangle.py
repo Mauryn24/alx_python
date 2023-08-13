@@ -1,5 +1,5 @@
-"""a module that creates a class Rectangle which is a child of BaseGeometry"""
-class Rectangle(BaseGeometry):
+"""A module that creates a class Rectangle which is a child of BaseGeometry"""
+def Rectangle(BaseGeometry):
     """A class Rectangle which is a child of BaseGeometry"""
     def __init__(self, width, height):
         self.__width = width
