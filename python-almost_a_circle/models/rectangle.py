@@ -55,7 +55,7 @@ class Rectangle(Base):
         """Set the y-coordinate"""
         if y < 0:
             raise ValueError("Y-coordinate must be a non-negative")
-        return self.__y
+        self.__y = y
     
     def __init__(self, width, height, x=0, y=0, id=None):
         """class constructor"""
