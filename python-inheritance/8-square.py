@@ -1,5 +1,6 @@
 """A module that creates a class Rectangle which is a child of BaseGeometry"""
 class BaseGeometry:
+    """class Geometry"""
     def area(self):
         raise Exception("area() is not implemented")
 
