@@ -22,7 +22,7 @@ if __name__ == '__main__':
     """execute the query"""
     cursor.execute("SELECT * FROM states\
         WHERE name LIKE BINARY '{}'\
-        ORDER BR id ASC".format(sys.argv[4]))
+        ORDER BY id ASC".format(sys.argv[4]))
 
     """fetch the data"""
     data = cursor.fetchall()
