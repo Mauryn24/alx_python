@@ -21,7 +21,7 @@ if __name__ == "__main__":
     """execute the query"""
     cursor.execute("SELECT c.id, c.name, s.name\
                    FROM states s, cities c\
-                   WHERE c.states_id = s.id\
+                   WHERE c.state_id = s.id\
                    ORDER BY c.id ASC")
     
     """fetch the data"""
