@@ -14,20 +14,20 @@ if __name__ == "__main__":
                          db=sys.argv[3],
                          host="localhost",
                          port=3306)
-    
+
     """create a cursor object"""
     cursor = db.cursor()
 
     """execute the SQL query"""
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-    #Fetch all the rows
+    """Fetch all the rows"""
     results = cursor.fetchall()
 
     """print the results"""
     for row in results:
         print(row)
-    
+
     """close the cursor object"""
     cursor.close()
 
