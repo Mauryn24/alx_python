@@ -14,7 +14,7 @@ if __name__ == "__main__":
                          db=sys.argv[3],
                          host="localhost",
                          port=3306)
-    
+
     """create a cursor object"""
     cursor = db.cursor()
 
@@ -23,7 +23,7 @@ if __name__ == "__main__":
                    FROM states s, cities c\
                    WHERE c.state_id = s.id\
                    ORDER BY c.id ASC")
-    
+
     """fetch the data"""
     data = cursor.fetchall()
 

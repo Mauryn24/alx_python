@@ -1,7 +1,8 @@
 #!\usr\bin\python3
 
 """
-a script that takes in arguments and displays all values in the states table of hbtn_0e_0_usa where name matches the argument. But this time,
+a script that takes in arguments and displays all
+values in the states table of hbtn_0e_0_usa where name matches the argument. But this time,
 write one that is safe from MySQL injections!
 """
 
@@ -23,7 +24,7 @@ if __name__ == '__main__':
     cursor.execute("SELECT * FROM states WHERE name LIKE\
                BINARY %(name)s ORDER BY\
                id ASC", {'name': sys.argv[4]})
-    
+
     """fetch data"""
     data = cursor.fetchall()
 
