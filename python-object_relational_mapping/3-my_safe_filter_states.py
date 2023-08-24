@@ -25,7 +25,7 @@ if __name__ == '__main__':
                id ASC", {'name': sys.argv[4]})
     
     """fetch data"""
-    data = db.fetchall()
+    data = cursor.fetchall()
 
     """print results"""
     for row in data:
