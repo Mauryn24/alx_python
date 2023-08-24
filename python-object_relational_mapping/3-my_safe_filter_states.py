@@ -20,7 +20,7 @@ if __name__ == '__main__':
     cursor = db.cursor()
 
     """execute a query"""
-    db.execute("SELECT * FROM states WHERE name LIKE\
+    cursor.execute("SELECT * FROM states WHERE name LIKE\
                BINARY %(name)s ORDER BY\
                id ASC", {'name': sys.argv[4]})
     
