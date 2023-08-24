@@ -18,9 +18,10 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     """execute the query"""
-    cursor.execute("SELECT cities.id, cities.name, states.name\
-                   FROM cities JOIN states ON cities.states_id\
-                   = states.id ORDER BY cities.id ASC")
+    cursor.execute("SELECT c.id, c.name, s.name\
+                   FROM states s, cities c\
+                   WHERE c.states_id = s.id\
+                   ORDER BY c.id ASC")
     
     """fetch the data"""
     data = cursor.fetchall()
