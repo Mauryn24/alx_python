@@ -14,16 +14,16 @@ if __name__ == "__main__":
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3],
-        host="localhost",
+        host='localhost',
         port=3306)
 
     """create a cursor object"""
     cursor = db.cursor()
 
     """query"""
-    sql = """SELECT * FROM states
-            WHERE name LIKE BINARY '{}'
-            ORDER BR id ASC""".format(sys.argv[4])
+    sql = "SELECT * FROM states\
+            WHERE name LIKE BINARY '{}'\
+            ORDER BR id ASC".format(sys.argv[4])
 
     """execute the query"""
     cursor.execute(sql)
