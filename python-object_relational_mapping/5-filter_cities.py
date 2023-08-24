@@ -24,7 +24,7 @@ if __name__=="__main__":
     """query"""
     sql = """SELECT cities.name
         FROM states
-        INNER JOIN cities ON states.id=cities.state_d
+        INNER JOIN cities ON states.id=cities.state_id
         WHERE states.name = %s
         ORDER by cities.id ASC"""
     
