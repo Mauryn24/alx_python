@@ -22,8 +22,8 @@ if __name__ == "__main__":
 
     """query"""
     query = """SELECT * FROM states\
-                   WHERE name LIKE BINARY '{}'\
-                   ORDER BR id ASC""".format(sys.argv[4])
+            WHERE name LIKE BINARY '{}'\
+            ORDER BR id ASC""".format(sys.argv[4])
 
     """execute the query"""
     cursor.execute(query)
