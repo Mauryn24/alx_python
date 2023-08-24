@@ -20,10 +20,13 @@ if __name__ == "__main__":
     """create a cursor object"""
     cursor = db.cursor()
 
-    """execute the query"""
-    cursor.execute("SELECT * FROM states\
+    """query"""
+    query = """SELECT * FROM states\
                    WHERE name LIKE BINARY '{}'\
-                   ORDER BR id ASC".format(sys.argv[4]))
+                   ORDER BR id ASC""".format(sys.argv[4])
+
+    """execute the query"""
+    cursor.execute(query)
 
     """fetch the data"""
     data = cursor.fetchall()
