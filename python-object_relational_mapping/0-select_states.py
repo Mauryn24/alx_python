@@ -31,5 +31,3 @@ if __name__ == "__main__":
 
     #close the connection to the database
     db.close()
-
-"""Code here will only run if this script is the main program It won't run if this script is imported as a module"""
