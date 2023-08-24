@@ -21,12 +21,12 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     """query"""
-    query = """SELECT * FROM states
+    sql = """SELECT * FROM states
             WHERE name LIKE BINARY '{}'
             ORDER BR id ASC""".format(sys.argv[4])
 
     """execute the query"""
-    cursor.execute(query)
+    cursor.execute(sql)
 
     """fetch the data"""
     data = cursor.fetchall()
