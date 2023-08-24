@@ -10,7 +10,7 @@ import MySQLdb
 if __name__ == "__main__":
     """connect to the MySQL database"""
     db = MySQLdb.connect(user=sys.argv[1],
-                         passwd = sys.argv[2],
+                         passwd=sys.argv[2],
                          db=sys.argv[3],
                          host="localhost",
                          port=3306)
@@ -19,7 +19,9 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     """Execute a query"""
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states\
+                   WHERE name LIKE BINARY 'N%'\
+                   ORDER BY id ASC")
 
     """Fetch all rows with matching query"""
     data = cursor.fetchall()
