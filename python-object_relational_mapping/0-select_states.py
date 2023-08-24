@@ -5,9 +5,13 @@
 import sys
 import MySQLdb
 
-def main(username, password, database):
+if __name__ == "__main__":
     #connect to the MySQL database
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3],
+                         host="localhost",
+                         port=3306)
     
     #create a cursor object
     cursor = db.cursor()
@@ -20,21 +24,12 @@ def main(username, password, database):
 
     #print the results
     for row in results:
-        print(row[0], row[1])
+        print(row)
     
     #close the cursor object
     cursor.close()
 
     #close the connection to the database
-    db.close
+    db.close()
 
 """Code here will only run if this script is the main program It won't run if this script is imported as a module"""
-
-if __name__ == "main":
-    #get the username, password and databasenamr from the commandline arguement
-    username = input("Enter MySQl username: ")
-    password = input("Enter MySQL password: ")
-    database = input("Enter MySQL database name: ")
-
-    #call the main function
-    main(username, password, database)
