@@ -8,28 +8,28 @@ import MySQLdb
 
 
 if __name__ == "__main__":
-    #connect to the MySQL database
+    """connect to the MySQL database"""
     db = MySQLdb.connect(user=sys.argv[1],
                          passwd=sys.argv[2],
                          db=sys.argv[3],
                          host="localhost",
                          port=3306)
     
-    #create a cursor object
+    """create a cursor object"""
     cursor = db.cursor()
 
-    #execute the SQL query
+    """execute the SQL query"""
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
     #Fetch all the rows
     results = cursor.fetchall()
 
-    #print the results
+    """print the results"""
     for row in results:
         print(row)
     
-    #close the cursor object
+    """close the cursor object"""
     cursor.close()
 
-    #close the connection to the database
+    """close the connection to the database"""
     db.close()
