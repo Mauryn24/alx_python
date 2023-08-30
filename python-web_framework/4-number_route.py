@@ -59,8 +59,8 @@ def number(n):
         """Return "n is a number" only if n is an integer"""
         return '{} is a number'.format(n)
     else:
-        """return '{} is not a number'.format(n)"""
-        return '{} is not a number'.format(n)
+        """Return a 404 error if n is not an integer"""
+        return '{} is a number'.format(n), 404
 if __name__ == '__main__':
     """Start the application and make it listen on IP address 0.0.0.0 and port 5000"""
     app.run(host='0.0.0.0', port=5000)
