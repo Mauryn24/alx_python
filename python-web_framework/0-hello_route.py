@@ -13,7 +13,7 @@ from flask import Flask
 
 """create a flask application instance"""
 app = Flask(__name__)
-"""# Define a route for the root URL ("/") and set strict_slashes to False"""
+""" Define a route for the root URL ("/") and set strict_slashes to False"""
 @app.route('/', strict_slashes=False)
 def hello():
     """ #Return the "Hello HBNB!" message as the response"""
