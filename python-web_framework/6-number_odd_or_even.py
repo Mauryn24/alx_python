@@ -101,9 +101,9 @@ def number_odd_or_even(n):
         """render the 'number_odd_or_even.html' template and pass the value of n and the result to the template"""
         return render_template('6-number_odd_or_even.html', n=n, result=result)
     
-    #else:
-      #  """Return a 404 error if n is not an integer"""
-    #    return render_template('6-number_odd_or_even.html', n=n), 404  
+    else:
+        """Return a 404 error if n is not an integer"""
+        return render_template('6-number_odd_or_even.html', n=n), 404  
 
 if __name__ == '__main__':
     """Start the application and make it listen on IP address 0.0.0.0 and port 5000"""
