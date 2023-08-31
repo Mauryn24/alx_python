@@ -103,7 +103,7 @@ def number_odd_or_even(n):
     
     else:
         """Return a 404 error if n is not an integer"""
-        return render_template('6-number_odd_or_even.html', n=n), 404  
+        return render_template('6-number_odd_or_even.html', n=n, result=result), 404  
 
 if __name__ == '__main__':
     """Start the application and make it listen on IP address 0.0.0.0 and port 5000"""
