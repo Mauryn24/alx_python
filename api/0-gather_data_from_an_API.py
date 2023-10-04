@@ -13,6 +13,7 @@ import requests
 # import the sys library
 from sys import argv
 
+
 # Get the employee ID from the command line
 employee_id = argv[1]
 
@@ -34,11 +35,8 @@ total_tasks = len(todos_data)  # Total number of tasks
 # Iterate through the TODO items
 for task in todos_data:
     # Check if the task is completed
-    if (task['completed'] == True):
+    if task['completed']:
         completed_tasks.append(task['title'])  # Add the title to the list of completed tasks
-
-    if (task['completed'] == False or task['completed'] == True):
-        total_tasks += 1
 
 # Send an HTTP GET request to the URL for employee details
 user_data = requests.get(url_user)
