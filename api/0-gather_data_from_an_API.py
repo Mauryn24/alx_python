@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """
     Write a Python script that, using this REST API, for a given employee ID, returns information about his/her TODO list progress.
@@ -8,13 +8,13 @@
 """
 
 # import the sys library
-import sys
+from sys import argv
 # import the requests library
 import requests
 
 
 # Get the employee ID from the command line
-employee_id = sys.argv[1]
+employee_id = argv[1]
 
 # Endpoint for accessing specific todo items
 url_todos = f'https://jsonplaceholder.typicode.com/users/{employee_id}/todos'
