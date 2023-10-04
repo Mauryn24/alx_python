@@ -7,10 +7,11 @@
     be https://jsonplaceholder.typicode.com/users/1
 """
 
-# import the requests library
-import requests
 # import the sys library
 import sys
+# import the requests library
+import requests
+
 
 # Get the employee ID from the command line
 employee_id = sys.argv[1]
