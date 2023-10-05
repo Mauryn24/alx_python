@@ -14,8 +14,8 @@
 
 
 # Import the necessary libraries
-import requests
 import json
+import requests
 from sys import argv
 
 # Check for the correct number of command-line arguments
