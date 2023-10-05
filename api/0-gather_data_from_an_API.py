@@ -7,8 +7,9 @@
 """
 
 # import the necessary modules
-import requests
 from sys import argv
+import json
+import requests
 
 #get user_id from the command line arguements
 user_id = argv[1]
