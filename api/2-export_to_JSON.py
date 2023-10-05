@@ -14,8 +14,8 @@
 
 
 # Import the necessary libraries
-import json
 import requests
+import json
 from sys import argv
 
 # Get the user_id from the command line arguments
