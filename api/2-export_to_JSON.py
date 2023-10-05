@@ -35,30 +35,33 @@ url_user = f"https://jsonplaceholder.typicode.com/users/?id={user_id}"
 # Make an API request to retrieve user data
 user_data = requests.get(url_user)
 res = user_data.json()
-username = res['username']
 
-# Make an API request to retrieve todo items for the user
-todos_response = requests.get(url_todos)
-todo_data = todos_response.json()
+for data in res:
 
-# Initialize lists and dictionary
-data = []
-user_data = {}
+    username = data['username']
 
-# Iterate through the todo items and count completed and not completed tasks
-for x in todo_data:
-    if (x['completed'] == True or x['completed'] == False):
-        tasks = {"task": x['title'],
-                 'completed': x['completed'], 'username': username}
-        data.append(tasks)
+    # Make an API request to retrieve todo items for the user
+    todos_response = requests.get(url_todos)
+    todo_data = todos_response.json()
 
-user_data[user_id] = data
+    # Initialize lists and dictionary
+    data = []
+    user_data = {}
 
-# Serializing JSON
-json_object = json.dumps(user_data)
+    # Iterate through the todo items and count completed and not completed tasks
+    for x in todo_data:
+        if (x['completed'] == True or x['completed'] == False):
+            tasks = {"task": x['title'],
+                    'completed': x['completed'], 'username': username}
+            data.append(tasks)
 
-# Create a JSON file using the user id
-json_file = f'{user_id}.json'
+    user_data[user_id] = data
+
+    # Serializing JSON
+    json_object = json.dumps(user_data)
+
+    # Create a JSON file using the user id
+    json_file = f'{user_id}.json'
 
 # Writing to a JSON file
 with open(json_file, 'w', encoding='utf-8', newline='') as f:
