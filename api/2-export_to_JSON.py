@@ -7,10 +7,14 @@
     specific employee's task and exports it to JSON
 """
 # This is a multi-line string (docstring) that provides a description of what the script does.
-
 import json      # Import the 'json' module for working with JSON data.
 import requests  # Import the 'requests' module for making HTTP requests.
 from sys import argv  # Import the 'argv' variable from the 'sys' module for handling command-line arguments.
+
+# Check for the correct number of command-line arguments
+if len(argv) != 2:
+    print("Usage: python3 gather_data_and_export_to_json.py <employee_id>")
+    exit(1)  # Print a usage message and exit the script if the number of arguments is incorrect.
 
 # Get user_id from the command line arguments
 user_id = argv[1]  # Retrieve the user ID from the command-line argument.
@@ -59,7 +63,7 @@ try:
     # Export the data to a JSON file
     with open(json_file_name, 'w') as jsonfile:
         #  i need to print data continuously without indentation
-
+        
 
         json.dump(task_records, jsonfile)
     # Write the task_records dictionary to a JSON file with proper formatting.
