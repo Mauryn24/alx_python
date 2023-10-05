@@ -7,12 +7,12 @@
 """
 
 # import the necessary modules
-from sys import argv
 import json
 import requests
+import sys
 
 #get user_id from the command line arguements
-user_id = argv[1]
+user_id = sys.argv[1]
 
 # Define the endpoint url to access a specific task
 user_todos = f'https://jsonplaceholder.typicode.com/users/{user_id}/todos'

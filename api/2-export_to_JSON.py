@@ -63,7 +63,10 @@ try:
 
     # Export the data to a JSON file
     with open(json_file_name, 'w') as jsonfile:
-        json.dump(task_records, jsonfile, indent=1)
+        #  i need to print data continuously without indentation
+        
+
+        json.dump(task_records, jsonfile)
     # Write the task_records dictionary to a JSON file with proper formatting.
 
     print(f"Data has been exported to {json_file_name}")
