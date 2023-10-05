@@ -1,51 +1,53 @@
 #!/usr/bin/python3
 
 """
-    Write a Python script that, using this REST API, for a given employee ID, returns information about his/her TODO list progress.
-    NB: The endpoint for access specific TODO items for an employee with
-    ID = 1 will be https://jsonplaceholder.typicode.com/users/1/todos, and the endpoint to get specific employee details will
-    be https://jsonplaceholder.typicode.com/users/1
+    A script that gathers data in an API
+    and displays information about a 
+    specific employee's task
 """
 
-# import the requests library
+# import the necessary modules
 import requests
-
-# import the sys library
 from sys import argv
 
+#get user_id from the command line arguements
+user_id = argv[1]
 
-# Get the employee ID from the command line
-employee_id = argv[1]
+# Define the endpoint url to access a specific task
+user_todos = f'https://jsonplaceholder.typicode.com/users/{user_id}/todos'
 
-# Endpoint for accessing specific todo items
-url_todos = f'https://jsonplaceholder.typicode.com/users/{employee_id}/todos'
+# Define the endpoint url for specific employee
+user_details = f'https://jsonplaceholder.typicode.com/users/{user_id}'
 
-# Endpoint for accessing specific employee details
-url_user = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
+# make API requests to retrieve the data
+user_data = requests.get(user_details)
 
-# Send an HTTP GET request to the URL for TODO items
-response = requests.get(url_todos)
+"""convert the data to json readable"""
+user_json = user_data.json()
 
-# Parse the JSON response from the API
-todos_data = response.json()
+# employeename
+Name = user_json['name']
 
-completed_tasks = []  # List to store completed task titles
-total_tasks = len(todos_data)  # Total number of tasks
+# retrieve the specific tasks for an employee
+todos_response = requests.get(user_todos)
+todos_data = todos_response.json()
 
-# Iterate through the TODO items
-for task in todos_data:
-    # Check if the task is completed
-    if task['completed']:
-        completed_tasks.append(task['title'])  # Add the title to the list of completed tasks
+#initialize lists and counters
+titles = []
+completed = 0
+totalTasks = 0
 
-# Send an HTTP GET request to the URL for employee details
-user_data = requests.get(url_user)
-employee_data = user_data.json()
+# iterate through the todo items and count the completed and not completed data
+for x in todos_data:
+    if (x['completed'] == True):
+        completed += 1
+        titles.append(x['title'])
+    if (x['completed'] == False or x['completed'] == True):
+        totalTasks += 1
 
-# Extract the employee's name
-employee_name = employee_data['name']
+# Display the employee's Task information
+print(f'Employee {Name} is done with tasks({completed}/{totalTasks}):')
 
-# Print the employee's task progress and completed task titles
-print("Employee {} is done with tasks ({}/{}):".format(employee_name, len(completed_tasks), total_tasks))
-for title in completed_tasks:
-    print("\t {}".format(title))
+#print the titles of completed tasks with indentation and spacing
+for title in titles:
+    print(f'\t {title}')
