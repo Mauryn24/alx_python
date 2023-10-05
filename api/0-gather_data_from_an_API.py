@@ -1,53 +1,48 @@
 #!/usr/bin/python3
-
 """
-    A script that gathers data in an API
-    and displays information about a 
-    specific employee's task
-"""
+This script gathers data from an API
+and displays information about a specific
+employee's tasks."""
 
-# import the necessary modules
+# Import the necessary libraries
 import requests
-import sys
+from sys import argv
 
-#get user_id from the command line arguements
-user_id = sys.argv[1]
+# Get the user_id from the command line arguments
+user_id = argv[1]
 
-# Define the endpoint url to access a specific task
-user_todos = f'https://jsonplaceholder.typicode.com/users/{user_id}/todos'
+# Define the endpoint URL to access specific todo items for the user
+url_todos = f'https://jsonplaceholder.typicode.com/users/{user_id}/todos'
 
-# Define the endpoint url for specific employee
-user_details = f'https://jsonplaceholder.typicode.com/users/{user_id}'
+# Define the endpoint URL to get specific employee details
+url_user = "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
 
-# make API requests to retrieve the data
-user_data = requests.get(user_details)
+# Make an API request to retrieve user data
+user_data = requests.get(url_user)
+res = user_data.json()
+employeeName = res['name']
 
-"""convert the data to json readable"""
-user_json = user_data.json()
+# Make an API request to retrieve todo items for the user
+todos_response = requests.get(url_todos)
+todo_data = todos_response.json()
 
-# employeename
-Name = user_json['name']
-
-# retrieve the specific tasks for an employee
-todos_response = requests.get(user_todos)
-todos_data = todos_response.json()
-
-#initialize lists and counters
+# Initialize lists and counters
 titles = []
 completed = 0
 totalTasks = 0
 
-# iterate through the todo items and count the completed and not completed data
-for x in todos_data:
-    if (x['completed'] == True):
+# Iterate through the todo items and count completed and not completed tasks
+for x in todo_data:
+    if (x["completed"] == True):
         completed += 1
         titles.append(x['title'])
     if (x['completed'] == False or x['completed'] == True):
         totalTasks += 1
 
-# Display the employee's Task information
-print(f'Employee {Name} is done with tasks({completed}/{totalTasks}):')
+# Display the employee's task information
+print('Employee {} is done with tasks({}/{}):'
+      .format(employeeName, completed, totalTasks))
 
-#print the titles of completed tasks with indentation and spacing
+# Display the titles of completed tasks with indentation
 for title in titles:
     print(f'\t {title}')
