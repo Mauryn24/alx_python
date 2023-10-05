@@ -41,7 +41,7 @@ try:
     # Send an HTTP GET request to retrieve task data and parse the JSON response.
 
     # Initialize a dictionary to store task records
-    task_records = {user_id: []}
+    task_records = []
     # Create a dictionary with the user ID as the key and an empty list as the value.
 
     # Iterate through the todo items and create task records
