@@ -7,7 +7,6 @@
 """
 
 # import the necessary modules
-import json
 import requests
 import sys
 
