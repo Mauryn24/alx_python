@@ -30,7 +30,7 @@ user_id = argv[1]
 url_todos = f'https://jsonplaceholder.typicode.com/users/{user_id}/todos'
 
 # Define the endpoint URL to get specific employee details
-url_user = f"https://jsonplaceholder.typicode.com/users/{user_id}"
+url_user = f"https://jsonplaceholder.typicode.com/users/?id={user_id}"
 
 # Make an API request to retrieve user data
 user_data = requests.get(url_user)
