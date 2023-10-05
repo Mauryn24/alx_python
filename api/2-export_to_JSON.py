@@ -41,7 +41,9 @@ try:
     # Send an HTTP GET request to retrieve task data and parse the JSON response.
 
     # Initialize a dictionary to store task records
-    task_records = []
+    task_records = {}
+    #  create an empty list
+    list = [] 
     # Create a dictionary with the user ID as the key and an empty list as the value.
 
     # Iterate through the todo items and create task records
@@ -52,8 +54,10 @@ try:
         # Create a dictionary for each task
         task_record = {"task": task_title, "completed": task_completed, "username": username}
         # Create a dictionary with task details in the specified format.
+        list.append(task_record)
+        task_records[user_id] = list
 
-        task_records[user_id].append(task_record)
+        # task_records[user_id].append(task_record)
         # Append the task record to the list under the user ID key in the task_records dictionary.
 
     # Define the JSON file name
