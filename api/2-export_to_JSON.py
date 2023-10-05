@@ -18,6 +18,11 @@ import requests
 import json
 from sys import argv
 
+# Check for the correct number of command-line arguments
+if len(argv) != 2:
+    print("Usage: python3 gather_data_and_export_to_json.py <employee_id>")
+    exit(1)
+
 # Get the user_id from the command line arguments
 user_id = argv[1]
 
