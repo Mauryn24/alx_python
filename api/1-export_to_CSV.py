@@ -68,7 +68,6 @@ for task in todos_data:
     # This line constructs a list containing the user ID, username, task completion status, and task title for each task,
     # and appends it to the `task_records` list.
 
-    print(task_records)
 #Define the CSV file name
 csv_file = f'{user_id}.csv'
 # write the data to a csv file
