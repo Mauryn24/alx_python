@@ -62,16 +62,22 @@ for task in todos_data:
     task_title = task['title']
     # This line extracts the 'title' field from each task and stores it in the variable `task_title`.
     
-    task_records.append([user_id, Name, task_completed, task_title])
+    #  create a variabl
+    row = f'"{user_id}","{Name}","{task_completed}","{task_title}"'
+    task_records.append(row)
     # This line constructs a list containing the user ID, username, task completion status, and task title for each task,
     # and appends it to the `task_records` list.
 
+    print(task_records)
 #Define the CSV file name
 csv_file = f'{user_id}.csv'
 # write the data to a csv file
-with open(csv_file, 'w', encoding='utf-8', newline='') as f:
-    writer = csv.writer(f)
-    writer.writerows(task_records)
+with open(csv_file, 'w', encoding='utf-8') as f:
+    for row in task_records:
+        f.write(row)
+        f.write('\n')
+    # writer = csv.writer(f)
+    # writer.writerows(task_records)
 # This section opens a CSV file named '2.csv' in write mode and writes the `task_records` data to the file using the `csv` module.
 
 # The script essentially gathers information about a specific employee's tasks from an API and writes that information to a CSV file.
