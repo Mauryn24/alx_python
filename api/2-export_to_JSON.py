@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-"""
+
+""" 
     Export Employee Tasks to JSON
 
     This Python script exports tasks owned by a specific employee in JSON format.
@@ -10,6 +11,7 @@
     Usage:
         $ python script.py <user_id>
 """
+
 
 # Import the necessary libraries
 import json
@@ -25,31 +27,43 @@ if len(argv) != 2:
 user_id = argv[1]
 
 # Define the endpoint URL to access specific todo items for the user
-url_todos = f'https://jsonplaceholder.typicode.com/todos?userId={user_id}'
 
-# Make an API request to retrieve todo items for the user
-todos_response = requests.get(url_todos)
-todo_data = todos_response.json()
+# Define the endpoint URL to get specific employee details
+url_user = f"https://jsonplaceholder.typicode.com/users/?id={user_id}"
 
-# Initialize a list to store task records
-task_records = []
+# Make an API request to retrieve user data
+user_data = requests.get(url_user)
+res = user_data.json()
 
-# Iterate through the todo items and create task records
-for task in todo_data:
-    task_title = task['title']
-    task_completed = task['completed']
+for data in res:
 
-    # Create a dictionary for each task in the specified format
-    task_record = {"task": task_title,
-                   "completed": task_completed, "username": user_id}
+    username = data['username']
 
-    task_records.append(task_record)
+    url_todos = f'https://jsonplaceholder.typicode.com/todos?userId={user_id}'
 
-# Define the JSON file name
-json_file_name = f'{user_id}.json'
+    # Make an API request to retrieve todo items for the user
+    todos_response = requests.get(url_todos)
+    todo_data = todos_response.json()
 
-# Export the data to a JSON file
-with open(json_file_name, 'w') as jsonfile:
-    json.dump(task_records, jsonfile, indent=4)
+    # Initialize lists and dictionary
+    data = []
+    user_data = {}
 
-print(f"Data has been exported to {json_file_name}")
+    # Iterate through the todo items and count completed and not completed tasks
+    for x in todo_data:
+        if (x['completed'] == True or x['completed'] == False):
+            tasks = {"task": x['title'],
+                    'completed': x['completed'], 'username': username}
+            data.append(tasks)
+
+    user_data[user_id] = data
+
+    # Serializing JSON
+    json_object = json.dumps(user_data)
+
+    # Create a JSON file using the user id
+    json_file = f'{user_id}.json'
+
+# Writing to a JSON file
+with open(json_file, 'w', encoding='utf-8', newline='') as f:
+    f.write(json_object)
