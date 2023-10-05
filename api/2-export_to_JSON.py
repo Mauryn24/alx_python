@@ -27,7 +27,6 @@ if len(argv) != 2:
 user_id = argv[1]
 
 # Define the endpoint URL to access specific todo items for the user
-url_todos = f'https://jsonplaceholder.typicode.com/users/{user_id}/todos'
 
 # Define the endpoint URL to get specific employee details
 url_user = f"https://jsonplaceholder.typicode.com/users/?id={user_id}"
@@ -39,6 +38,8 @@ res = user_data.json()
 for data in res:
 
     username = data['username']
+
+    url_todos = f'https://jsonplaceholder.typicode.com/todos?userId={user_id}'
 
     # Make an API request to retrieve todo items for the user
     todos_response = requests.get(url_todos)
