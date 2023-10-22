@@ -1,7 +1,32 @@
-#!/usr/bin/python3
-"""Empty class"""
+"""
+Module: 3-base_geometry
 
+This module defines an empty base class for other geometry-related classes.
 
-class BaseGeometry:
-    """Empty class"""
+Classes:
+    BaseGeometry: A base class for other geometry-related classes.
+"""
+
+class definitionOverrideMetaClass(type):
+    def __new__(cls, name, bases, attrs):
+        # Customize the class creation process here
+        return super().__new__(cls, name, bases, attrs)
+
+    def __dir__(cls):
+        """
+        Returns:
+            list: List of attributes excluding __init_subclass__.
+        """
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+
+class BaseGeometry(definitionOverrideMetaClass('BaseGeometry', (), {})):
+    """
+    This class serves as the base for other geometry-related classes.
+    """
     pass
+    def __dir__(cls):
+        """
+        Returns:
+            list: List of attributes excluding __init_subclass__.
+        """
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
