@@ -1,5 +1,7 @@
 {
-    "2": [
+    "user_id": "2",
+    "username": "Antonette",
+    "tasks": [
         {
             "task": "suscipit repellat esse quibusdam voluptatem incidunt",
             "completed": false,
